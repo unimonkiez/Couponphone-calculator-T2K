@@ -66,7 +66,7 @@
       }, 0);
 
       var totalSpentOnMe = shopHistory.reduce(function(a, b) {
-          return a + (b.hour === 6 && b.minute >= 0 && b.minute <= 30 ? 0 : b.cost);
+          return a + (b.hour === 17 ? 0 : b.cost);
       }, 0) - discountsPrices.reduce(function(a, b){
         return a + b;
       }, 0);
