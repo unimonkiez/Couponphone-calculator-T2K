@@ -8,6 +8,7 @@
       prices = prices.filter(function(_, index) {
           return index !== (prices.length - 1);
       });
+      var discounts = [].slice.call(document.querySelectorAll('#tdDiscountPrice'));
       var shopHistory = dates.map(function(dateElement, index) {
           var dateArray = dateElement.childNodes[0].textContent.trim().split(' ');
           var days = (dateArray[1] || '').split('.').map(function(str) {
@@ -26,7 +27,10 @@
               second: times[2],
               cost: cost
           }
-      })
+      });
+      var discountsPrices = discounts.map(function(el){
+        return Number(el.innerHTML.trim());
+      });
 
       var startDate = new Date(document.getElementById('txbStartDate').value.split('/').reverse().join('-'));
       var endDate = new Date(document.getElementById('txbEndDate').value.split('/').reverse().join('-'));
@@ -57,7 +61,9 @@
 
       var totalSpentOverall = shopHistory.reduce(function(a, b) {
           return a + b.cost;
-      }, 0)
+      }, 0) - discountsPrices.reduce(function(a, b){
+        return a + b;
+      }, 0);
 
       var totalSpentOnMe = shopHistory.reduce(function(a, b) {
           return a + (b.hour === 6 && b.minute >= 0 && b.minute <= 30 ? 0 : b.cost);
@@ -171,7 +177,7 @@
       function updateByWorkDays(workDays) {
           var myTotal = workDays * 25;
           tdTotalInMonth.innerHTML = myTotal.toFixed(2) + ' ₪';
-          tdTotalInMonthForMe.innerHTML = (myTotal - totalSpentOnMe).toFixed(2) + ' ₪';
+          tdTotalInMonthForMe.innerHTML = (totalSpentOnMe - myTotal).toFixed(2) + ' ₪';
       }
   }
 })();
