@@ -1,6 +1,6 @@
 # Couponphone-calculator-T2K
 ## Setup
-1. Add bookmark with name "חישוב קופונפון" and link `javascript:[main.min.js content]`.
+1. Add bookmark with name "חישוב קופונפון" and lin(function(){var%20t=document.createElement("script");t.src="//rawgithub.com/unimonkiez/Couponphone-calculator-T2K/master/main.js",document.getElementsByTagName("head")[0].appendChild(t)})();nt]`.
 2. Login to Couponphone website and click on "דו"ח הזמנות".
 
 ![sdfds](http://s15.postimg.org/3r8jqqlob/ct2k.png)
