@@ -1,6 +1,6 @@
 # Couponphone-calculator-T2K
 ## Setup
-1. Add bookmark with name "חישוב קופונפון" and lin(function(){var%20t=document.createElement("script");t.src="//rawgithub.com/unimonkiez/Couponphone-calculator-T2K/master/main.js",document.getElementsByTagName("head")[0].appendChild(t)})();nt]`.
+1. Add bookmark with name "חישוב קופונפון" and adress - `javascript:(function(){var%20t=document.createElement("script");t.src="//rawgithub.com/unimonkiez/Couponphone-calculator-T2K/master/main.js",document.getElementsByTagName("head")[0].appendChild(t)})();`.
 2. Login to Couponphone website and click on "דו"ח הזמנות".
 
 ![sdfds](http://s15.postimg.org/3r8jqqlob/ct2k.png)
@@ -14,5 +14,5 @@
  - **b** - Total need to pay this month - not including orders from 18:00 to 18:30 (minus is the amount remaining).
  - **c** - Amount that will be payed by the company (work days * 25).
  - **d** - Total spent
-  
+
 ![sdfds](http://s15.postimg.org/jbfxh9vsr/ct2k_3.png)
