@@ -1,30 +1,17 @@
 (function(){
     'use strict';
     if (!document.getElementById('yuval')) {
-      var dates = [].slice.call(document.getElementsByClassName('od')).filter(function(_, index) {
-          return index !== 0;
-      });
+      var cardNumbers = [].slice.call(document.getElementsByClassName('cn'));
       var prices = [].slice.call(document.getElementsByClassName('pr'));
       prices = prices.filter(function(_, index) {
           return index !== (prices.length - 1);
       });
       var discounts = [].slice.call(document.querySelectorAll('#tdDiscountPrice'));
-      var shopHistory = dates.map(function(dateElement, index) {
-          var dateArray = dateElement.childNodes[0].textContent.trim().split(' ');
-          var days = (dateArray[1] || '').split('.').map(function(str) {
-              return Number(str)
-          });
-          var times = dateArray[0].split(':').map(function(str) {
-              return Number(str)
-          });
+      var shopHistory = cardNumbers.map(function(cardNumberElement, index) {
+          var cardNumber = cardNumberElement.childNodes[0].textContent.trim();
           var cost = Number(prices[index].innerHTML.trim().replace(/[^0-9.-]/g, ''));
           return {
-              day: days[0],
-              month: days[1],
-              year: days[2],
-              hour: times[0],
-              minute: times[1],
-              second: times[2],
+              cardNumber: cardNumber,
               cost: cost
           }
       });
@@ -66,7 +53,7 @@
       }, 0);
 
       var totalSpentOnMe = shopHistory.reduce(function(a, b) {
-          return a + (b.hour === 17 ? 0 : b.cost);
+          return a + (b.cardNumber === '--' ? 0 : b.cost);
       }, 0) - discountsPrices.reduce(function(a, b){
         return a + b;
       }, 0);
